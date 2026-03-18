@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AccountMngt - Home</title>
+</head>
+<body>
+    <h1>AccountMngt</h1>
+    <p>Welcome to the Account Management system.</p>
+    <ul>
+        <li><a th:href="@{/orders}">View Orders</a></li>
+        <li><a th:href="@{/orders/new}">Create New Order</a></li>
+    </ul>
+</body>
+</html>

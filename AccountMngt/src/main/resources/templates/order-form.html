@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Order - AccountMngt</title>
+</head>
+<body>
+    <h1>Create New Order</h1>
+    <p><a th:href="@{/}">Home</a> | <a th:href="@{/orders}">View Orders</a></p>
+
+    <form th:action="@{/orders/create}" method="post">
+        <label>Order ID: <input type="text" name="orderId" required /></label><br><br>
+        <label>Price: <input type="number" name="price" step="0.01" required /></label><br><br>
+        <label>Quantity: <input type="number" name="quantity" required /></label><br><br>
+        <label>Account ID: <input type="text" name="accountId" /></label><br><br>
+        <label>Stock ID: <input type="text" name="stockId" /></label><br><br>
+        <label>Order Type:
+            <select name="orderType">
+                <option value="SELL">SELL</option>
+                <option value="BUY">BUY</option>
+            </select>
+        </label><br><br>
+        <button type="submit">Save Order</button>
+    </form>
+</body>
+</html>

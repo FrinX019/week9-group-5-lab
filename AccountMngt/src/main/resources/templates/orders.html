@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders - AccountMngt</title>
+</head>
+<body>
+    <h1>Order Transactions</h1>
+    <p th:if="${message}" th:text="${message}" style="color: green;"></p>
+    <p><a th:href="@{/}">Home</a> | <a th:href="@{/orders/new}">Create New Order</a></p>
+
+    <table border="1" cellpadding="8">
+        <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>Date</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Account</th>
+                <th>Stock</th>
+                <th>Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="order : ${orders}">
+                <td th:text="${order.orderId}">-</td>
+                <td th:text="${#temporals.format(order.date, 'yyyy-MM-dd HH:mm')}">-</td>
+                <td th:text="${order.price}">-</td>
+                <td th:text="${order.quantity}">-</td>
+                <td th:text="${order.accountId}">-</td>
+                <td th:text="${order.stockId}">-</td>
+                <td th:text="${order.orderType}">-</td>
+            </tr>
+            <tr th:if="${#lists.isEmpty(orders)}">
+                <td colspan="7">No orders found.</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
